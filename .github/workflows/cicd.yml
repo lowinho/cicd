@@ -29,7 +29,7 @@ jobs:
     - run: npm i
     - run: npm run start
     - run: |
-          npm run test
+          npm test -- --coverage
           COVERAGE_THRESHOLD=80  # Adjust the coverage threshold as needed
           CURRENT_COVERAGE=$(jq -r '.total.percent' coverage/coverage-final.json)
           echo "Current coverage: $CURRENT_COVERAGE%"
