@@ -1,6 +1,6 @@
 import { getResult } from "./services/getResult"
 
-const main = () => {
+export const main = () => {
   const result = getResult('test')
   return result
 }
