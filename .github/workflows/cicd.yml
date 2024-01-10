@@ -30,7 +30,7 @@ jobs:
     - run: npm run start
     - run: |
           npm run test
-          sudo apt-get update && sudo apt-get install jq
+          npm run coverage
           COVERAGE_THRESHOLD=80  # Adjust the coverage threshold as needed
           CURRENT_COVERAGE=$(jq -r '.total.percent' coverage/coverage-final.json)
           echo "Current coverage: $CURRENT_COVERAGE%"

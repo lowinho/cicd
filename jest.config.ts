@@ -2,13 +2,14 @@ require('dotenv').config()
 
 export default {
   // clearMocks: true,
-  "preset": "ts-jest",
-  "testEnvironment": "node",
+  preset: "ts-jest",
+  testEnvironment: "node",
   roots: ['./src'],
   collectCoverage: true,
   collectCoverageFrom: ['./src/**/*.ts'],
+  coverageReporters: ["json", "lcov", "text", "clover"],
   coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
+  // coverageProvider: 'v8',
   transform: {
     '.+\\.ts$': 'ts-jest'
   },
