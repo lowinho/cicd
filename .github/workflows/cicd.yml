@@ -31,7 +31,7 @@ jobs:
     - run: |
           npm run test
           COVERAGE_THRESHOLD=80  # Adjust the coverage threshold as needed
-          CURRENT_COVERAGE=$(jq -r '.total.percent' coverage/lcov-report/coverage-summary.json)
+          CURRENT_COVERAGE=$(jq -r '.total.percent' coverage/lcov-report/coverage-final.json)
           echo "Current coverage: $CURRENT_COVERAGE%"
           if [ "$CURRENT_COVERAGE" -lt "$COVERAGE_THRESHOLD" ]; then
             echo "Error: Coverage is below the threshold of $COVERAGE_THRESHOLD%"
