@@ -29,10 +29,11 @@ jobs:
     - run: npm i
     - run: npm run start
     - run: |
-          npm run test
-          MIN_COVERAGE=40
-          CURRENT_COVERAGE=$(npx istanbul check-coverage --lines $MIN_COVERAGE)
-          if [ "$CURRENT_COVERAGE" == "false" ]; then
-            echo "A cobertura de código não atinge a porcentagem mínima necessária."
+          npm test -- --coverage
+          COVERAGE_THRESHOLD=80  # Adjust the coverage threshold as needed
+          CURRENT_COVERAGE=$(jq -r '.total.percent' coverage/lcov-report/coverage-summary.json)
+          echo "Current coverage: $CURRENT_COVERAGE%"
+          if [ "$CURRENT_COVERAGE" -lt "$COVERAGE_THRESHOLD" ]; then
+            echo "Error: Coverage is below the threshold of $COVERAGE_THRESHOLD%"
             exit 1
           fi
