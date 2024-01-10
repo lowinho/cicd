@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc --build && node dist/index.js",
-    "test": "jest --coverage --runInBand --forceExit --silent=true --setupFiles=dotenv/config",
+    "test": "jest --coverage --runInBand --forceExit --silent=true --detectOpenHandles --setupFiles=dotenv/config",
     "dev": "nodemon src/index.ts"
   },
   "keywords": [],
