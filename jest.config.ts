@@ -7,11 +7,19 @@ export default {
   roots: ['./src'],
   collectCoverage: true,
   collectCoverageFrom: ['./src/**/*.ts'],
-  coverageReporters: ["json", "lcov", "text", "clover"],
+  coverageReporters: ['clover', 'json', 'lcov', ['text', {skipFull: true}]],
   coverageDirectory: 'coverage',
-  // coverageProvider: 'v8',
+  coverageProvider: 'v8',
   transform: {
     '.+\\.ts$': 'ts-jest'
+  },
+  coverageThreshold: {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": 80
+    }
   },
   setupFiles: ["dotenv/config"],
   testMatch: ['**/*.test.ts'],
