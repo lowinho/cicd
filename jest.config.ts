@@ -7,7 +7,7 @@ export default {
   roots: ['./src'],
   collectCoverage: true,
   collectCoverageFrom: ['./src/**/*.ts'],
-  coverageReporters: ['clover', 'json', 'lcov', ['text', {skipFull: true}]],
+  coverageReporters: ['clover', 'json', 'lcov', 'text'],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   transform: {
