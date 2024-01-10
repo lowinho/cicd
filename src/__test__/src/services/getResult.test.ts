@@ -1,4 +1,4 @@
-import { getResult } from "../../../src/services/getResult";
+import { getResult } from "../../../services/getResult";
 
 describe('should update data on database', () => {
   test('should bring code 200', async () => {      
