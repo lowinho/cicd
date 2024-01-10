@@ -29,6 +29,10 @@ jobs:
     - run: npm i
     - run: npm run start
     - run: |
-          npm test
-          npm run coverage
-         
+          npm run test
+          MIN_COVERAGE=40
+          CURRENT_COVERAGE=$(npx istanbul check-coverage --lines $MIN_COVERAGE)
+          if [ "$CURRENT_COVERAGE" == "false" ]; then
+            echo "A cobertura de código não atinge a porcentagem mínima necessária."
+            exit 1
+          fi
