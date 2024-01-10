@@ -28,9 +28,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i
     - run: npm run start
+    - run: npm test
+    - run: npm run coverage
     - run: |
-          npm test
-          npm run coverage
           MIN_COVERAGE=80  # substitua pela porcentagem mínima desejada
           CURRENT_COVERAGE=$(npx istanbul check-coverage --lines $MIN_COVERAGE)
           if [ "$CURRENT_COVERAGE" == "false" ]; then
